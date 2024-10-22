@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common'; // Import CommonModule
 import { Todo } from '../../todosHedar';
 import { TodosItemComponent } from "../todos-item/todos-item.component";
+import { AddTodosComponent } from "../add-todos/add-todos.component";
 
 @Component({
   selector: 'app-todos',
   standalone: true,
-  imports: [CommonModule, TodosItemComponent], // Add CommonModule here
+  imports: [CommonModule, TodosItemComponent, AddTodosComponent], // Add CommonModule here
   templateUrl: './todos.component.html',
   styleUrls: ['./todos.component.css']
 })
@@ -20,6 +21,16 @@ export class TodosComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadTodos();
+  }
+
+  Deletetodo(todo: Todo){
+    console.log('this is to do');
+    const index = this.todosHedar.indexOf(todo)
+    this.todosHedar.splice(index, 1)
+  }
+  todoAdd(todo: Todo){
+    console.log('this is to do');
+    this.todosHedar.push(todo)
   }
 
   loadTodos(): void {

@@ -1,0 +1,12 @@
+<form (ngSubmit)="onSumbit()">
+  <div class="mb-3">
+    <label for="titleInput" class="form-label">Title</label>
+    <input type="text" [(ngModel)]="title" class="form-control" name="title" id="titleInput" required>
+    <div id="titleHelp" class="form-text">We'll never share your title with anyone else.</div>
+  </div>
+  <div class="mb-3">
+    <label for="descInput" class="form-label">Description</label>
+    <input type="text" [(ngModel)]="Decs" class="form-control" name="desc" id="descInput" required>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

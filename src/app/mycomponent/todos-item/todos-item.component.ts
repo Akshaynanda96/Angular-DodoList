@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, } from '@angular/core';
 import { Todo } from '../../todosHedar';
 
 @Component({
@@ -8,11 +8,16 @@ import { Todo } from '../../todosHedar';
   styleUrl: './todos-item.component.css'
 })
 export class TodosItemComponent implements OnInit {
-  @Input() todo!: Todo; 
+  @Input() todo !: Todo;
+  @Output() todoDelete : EventEmitter<Todo> = new EventEmitter();
   constructor() {
     
   }
   ngOnInit(): void {
       
   }
+  onClick(todo:Todo){
+    this.todoDelete.emit(todo);
+    console.log(this.todo)
+}
 }
